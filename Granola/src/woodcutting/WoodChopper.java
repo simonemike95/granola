@@ -3,9 +3,7 @@ package woodcutting;
 import java.awt.*;
 
 import org.osbot.rs07.api.Chatbox.MessageType;
-import org.osbot.rs07.api.map.Position;
 import org.osbot.rs07.api.model.RS2Object;
-import org.osbot.rs07.event.WalkingEvent;
 import org.osbot.rs07.input.mouse.MiniMapTileDestination;
 import org.osbot.rs07.listener.MessageListener;
 import org.osbot.rs07.script.Script;
