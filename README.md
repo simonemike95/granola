@@ -27,8 +27,11 @@ Project setup help can be found [here](https://osbot.org/forum/topic/58775-a-beg
 ![export-image3](https://i.imgur.com/qomCpGr.png)
 
 The exported jar file then needs to be placed in the OSBot scripts directory.
+
 Locations for different operating systems below:
+
 Windows: `C:/Users/<username>/OSBot/Scripts`
+
 Mac: `/Users/<username>/OSBot/Scripts`
 
 You can also specify this directory when exporting the jar, and it will be output directly to the OSBot scripts directory.
