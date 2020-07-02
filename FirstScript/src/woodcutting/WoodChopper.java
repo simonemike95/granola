@@ -1,4 +1,4 @@
-package core;
+package woodcutting;
 
 import java.awt.*;
 
@@ -12,7 +12,7 @@ import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
 
 @ScriptManifest(author = "Mike Simone", info = "Wood chopping script.", name = "WoodChopper", version = 0.1, logo = "")
-public class Main extends Script implements MessageListener {
+public class WoodChopper extends Script implements MessageListener {
 	
 	private RS2Object tree;
 	private int capacity;
