@@ -11,6 +11,6 @@ Note: Rather than right-clicking the entire project. You must right-click the sp
 
 The exported jar file is then need to be places in the OSBot scripts directory
 
-Windows: `C:\Users\<username>\OSBot\Scripts`
+Windows: `C:/Users/<username>/OSBot/Scripts`
 
 Mac: `/Users/<username>/OSBot/Scripts`
