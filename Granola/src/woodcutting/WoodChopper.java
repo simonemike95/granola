@@ -23,20 +23,6 @@ public class WoodChopper extends Script implements MessageListener {
 	@Override
 	public int onLoop() throws InterruptedException {
 		tree = null;
-//		
-//		// We're not doing anything, click a tree
-//		if(!myPlayer().isAnimating()) {
-//			 tree = getObjects().closest("Tree");
-//		}
-//		
-//		if (getInventory().contains("Logs")) {			
-//			if (getInventory().getItem("Tinderbox").interact("Use")) {
-//				getInventory().getItem("Logs").interact();
-//			}
-//		} else if (tree != null && !myPlayer().isAnimating()) {
-//			tree.interact("Chop down");
-//		}
-		
 		
 		capacity = (int) getInventory().getEmptySlots(); // Check our inventory
 		log("Capacity: " + capacity);
