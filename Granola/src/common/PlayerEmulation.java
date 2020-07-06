@@ -2,29 +2,34 @@ package common;
 
 import java.util.Random;
 
-import org.osbot.rs07.api.Mouse;
+import org.osbot.rs07.script.Script;
 
-public class PlayerEmulation {
+/**
+ * 
+ * @author		Mike Simone
+ * @brief		To use this class, create a new PlayerEmulation object, then call any of the sub functions.
+ * @implNote	This has not been tested as of 7/6/2020.
+ */
+public class PlayerEmulation extends Script {
 	
 	private final int MIN_TIME = 5000; // 5 Seconds
 	private final int MAX_TIME = 60000; // 60 Seconds / 1 Minute
 	
-	public void randomEvent() {
+	public void randomAfkEvent() {
 		Random rand = new Random();
 		int eventNum = rand.nextInt(3); // Generates us a random number from 0 - 2
 		
 		switch(eventNum) {
-		case 0: // Move the mouse off the screen for a random amount of time
-			mouseOffScreen(0, 0);
-			break;
-		case 1: // Check a random skill
-			checkRandomSkill();
-			break;
-		case 2: // Fall through on purpose
-		default: // Check our friends list breifly
-			checkFriendsList();
-			break;
-			
+			case 0: // Move the mouse off the screen for a random amount of time
+				mouseOffScreen(0, 0);
+				break;
+			case 1: // Check a random skill
+				checkRandomSkill();
+				break;
+			case 2: // Fall through on purpose
+			default: // Check our friends list breifly
+				checkFriendsList();
+				break;
 		}
 	}
 	
@@ -40,9 +45,17 @@ public class PlayerEmulation {
 			Random rand = new Random();
 			secondsOffScreen = rand.nextInt(MAX_TIME - MIN_TIME) + MIN_TIME;
 		}
-		
+				
 		// Move the mouse off the screen
-		Mouse.random(secondsOffScreen);
+		mouse.moveOutsideScreen();
+		
+		// Wait for seconds off screen
+		try {
+			Thread.sleep(secondsOffScreen);
+		} catch (InterruptedException e) {
+			log("Error while waiting for mouse off screen!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	// Checks the specified skill
@@ -59,6 +72,12 @@ public class PlayerEmulation {
 	public void checkFriendsList() {
 		// Go to the friends list tab
 		// Hover mouse over some names or something stupid
+	}
+
+	@Override
+	public int onLoop() throws InterruptedException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
