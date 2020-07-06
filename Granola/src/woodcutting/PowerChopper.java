@@ -38,8 +38,8 @@ public class PowerChopper extends Script implements MessageListener {
 		
 		/** 
 		 * The rest of these are kind of pointless for right now.
-		 * These will never be used for power chopping, but we can add the option
-		 * for it later just to have a complete feature set.
+		 * These will most likely never be used for power chopping, 
+		 * but we can add the options just to have a complete feature set.
 		 * Redwood logs can only be cut in one place, and should just be banked anyways.
 		 * This case should be handled separately from the rest.
 		 * 		e.g. instead of dropping all the logs, we should bank them.
@@ -97,7 +97,7 @@ public class PowerChopper extends Script implements MessageListener {
 			}
 		}
 
-		return random(700, 1000);
+		return random(1000, 10000);
 	}
 
 	@Override
