@@ -3,6 +3,7 @@ package mining;
 import java.awt.Graphics2D;
 import java.util.Random;
 
+import org.osbot.rs07.api.Chatbox.MessageType;
 import org.osbot.rs07.api.model.Item;
 import org.osbot.rs07.api.model.RS2Object;
 import org.osbot.rs07.script.Script;
@@ -23,35 +24,22 @@ public class SimpleMining extends Script {
 		// Don't want to do anything if the player is animating
 		if (!myPlayer().isAnimating() || !myPlayer().isMoving()) {
 			if (getInventory().isFull()) { // Drop all ore if inventory is full
-				log("Inventory full... Dropping all ore...");
-				
-				// 50/50 change of dropping all at once or looping through inventory
-				Random rand = new Random();
-				if (rand.nextBoolean()) {
-					// Drop all ore at once
-					getInventory().dropAll("Tin ore", "Copper ore");
-				} else {
-					// Loop through each ore to drop it
-					Item[] items = getInventory().getItems();
-					for (Item item : items) {
-						if (item.getName().equals("Tin ore") || item.getName().equals("Copper ore")) {
-							getInventory().drop(item.getId());
-							sleep(random(50, 300));
-						}
-					}
-				}
-				
+				log("Inventory is full... Dropping all of the ore...");
+				getInventory().dropAll("Tin ore", "Iron ore");
 				sleep(500);
 			} else { // Mine a rock if inventory is not full
 				RS2Object rock = getObjects().closest("Rocks");
 				
 				if (rock != null && rock.interact("Mine")) {
-					Sleep.sleepUntil(() -> myPlayer().isAnimating(), 10000);
+					log("Starting to mine the rock");
+					sleep(100);
+					Sleep.sleepUntil(() -> !myPlayer().isAnimating() || getChatbox().getMessages(MessageType.GAME).get(0).contains("You manage to mine some"), 10000);
+					log("Finished conditional sleep for mining");
 				}
 			}
 		}
 		
-		return random(700, 1000);
+		return random(1000, 7000);
 	}
 	
 	@Override
