@@ -8,6 +8,8 @@ import org.osbot.rs07.api.model.RS2Object;
 import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
 
+import common.Sleep;
+
 @ScriptManifest(author = "Danny Stewart", info = "Basic Mining Script", name = "SimpleMining", version = 0.1, logo = "")
 public class SimpleMining extends Script {
 	@Override
@@ -42,10 +44,9 @@ public class SimpleMining extends Script {
 				sleep(500);
 			} else { // Mine a rock if inventory is not full
 				RS2Object rock = getObjects().closest("Rocks");
-				if (rock != null) {
-					log("Found rock... Mining now...");
-					rock.interact("Mine");
-					sleep(500);
+				
+				if (rock != null && rock.interact("Mine")) {
+					Sleep.sleepUntil(() -> myPlayer().isAnimating(), 10000);
 				}
 			}
 		}
