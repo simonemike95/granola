@@ -1,10 +1,8 @@
 package mining;
 
 import java.awt.Graphics2D;
-import java.util.Random;
 
 import org.osbot.rs07.api.Chatbox.MessageType;
-import org.osbot.rs07.api.model.Item;
 import org.osbot.rs07.api.model.RS2Object;
 import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
