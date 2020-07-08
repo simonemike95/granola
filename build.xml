@@ -70,7 +70,7 @@
 		</copy>
     </target>
 	
-	<target name="install" depends="all">
+	<target name="install">
 		<copy todir="\Users\${user.name}\OSBot\Scripts">
 			<fileset dir="${dist}" />
 		</copy>
